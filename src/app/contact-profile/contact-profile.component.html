@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card" style="border-radius: 50px; background: rgba(255, 255, 255, 0.1)">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Google_Contacts_icon_%282022%29.svg/1200px-Google_Contacts_icon_%282022%29.svg.png"
+                    class="card-img-top" alt="selectedContact.title">
+                <div class="card-body">
+                    <p class="card-text">{{ selectedContact.id }}</p>
+                    <h5 class="card-title">{{ selectedContact.name }}</h5>
+                    <p class="card-text">{{ selectedContact.username }}</p>
+                    <p class="card-text">{{ selectedContact.email }}</p>
+                    <p class="card-text">{{ selectedContact.address.city }}</p>
+                    <p class="card-text">{{ selectedContact.phone }}</p>
+                    <p class="card-text">{{ selectedContact.website }}</p>
+                    <button class="btn btn-pink" [routerLink]="['/all-contacts']" style="border-radius: 25px;">Back
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-back" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

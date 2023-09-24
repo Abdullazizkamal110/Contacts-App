@@ -1,0 +1,48 @@
+<div class="text-center">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search..." class="mx-auto form-control search">
+</div>
+<section class="container my-5">
+    <h2>Contacts</h2>
+    <div class="row">
+        <div *ngFor="let contact of filteredContacts" class="col-lg-4 col-md-6">
+            <div class="card" style="border-radius: 50px; background: rgba(255, 255, 255, 0.1)">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Google_Contacts_icon_%282022%29.svg/1200px-Google_Contacts_icon_%282022%29.svg.png"
+                    class="card-img-top" alt="{{ contact.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ contact.name }}</h5>
+                    <p class="card-text">{{ contact.email }}</p>
+                    <div style="display: flex; align-items: center; justify-content: center; margin-top: 1em">
+                        <a [routerLink]="['/profile', contact.id]" class="btn btn-primary"
+                            style="font-size: 14px; border-radius: 25px; margin-left: 2px;">View
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="icon">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </a>
+                        <a (click)="deleteContact(contact.id)" class="btn btn-danger"
+                            style="font-size: 14px; border-radius: 25px; margin-left: 10px;">Delete
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                                class="bi bi-trash3" viewBox="0 0 16 16">
+                                <path
+                                    d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                            </svg>
+                        </a>
+                        <a (click)="toggleStar(contact)" class="btn btn-warning"
+                            [ngClass]="{'btn-warning': contact.starred, 'btn-secondary': !contact.starred && !contact.selected}"
+                            style="font-size: 14px; border-radius: 25px; margin-left: 10px;">
+                            Star
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                                class="bi bi-star" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.395 1.365l1.21 2.612a1 1 0 0 0 .776.544l2.67.315a.5.5 0 0 1 .278.857l-1.944 1.6a1 1 0 0 0-.306.928l.58 2.662a.5.5 0 0 1-.725.53L8 9.347l-2.928 1.53a.5.5 0 0 1-.726-.53l.58-2.662a1 1 0 0 0-.305-.928l-1.943-1.6a.5.5 0 0 1 .278-.856l2.669-.315a1 1 0 0 0 .777-.543l1.21-2.613a.5.5 0 0 1 .94 0z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
